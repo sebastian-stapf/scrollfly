@@ -3,7 +3,7 @@
   'use strict';
   const key = 'scrollfly-theme';
   const root = document.documentElement;
-  const normalize = value => value === 'dark' ? 'dark' : 'light';
+  const normalize = value => value === 'light' ? 'light' : 'dark';
   function apply(value) {
     const theme = normalize(value);
     root.dataset.theme = theme;
