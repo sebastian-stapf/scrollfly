@@ -1,7 +1,7 @@
 {
-  "release": "replay-20260911-light-mode",
+  "release": "replay-20260911-brain-glow",
   "asset": "scrollfly-pages.tar.gz",
-  "sha256": "35a97d6d9e3af417dde3c527b2a00d7abe0ba10740def25e6ce9c008ad61ad33",
+  "sha256": "02026f01e60a418eb7149b05b59b377940a3632b14da3165a9d9691b3ace38dc",
   "videos": 49,
   "first_video": "100194",
   "excluded_video_ids": [
@@ -13,6 +13,6 @@
     "index.html",
     "environment/index.html"
   ],
-  "uncompressed_bytes": 250042061,
-  "archive_bytes": 211148269
+  "uncompressed_bytes": 250042762,
+  "archive_bytes": 211148637
 }

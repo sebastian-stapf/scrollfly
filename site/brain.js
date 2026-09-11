@@ -40,13 +40,25 @@
       for(const n of neurons){
         const a=Number(activity[n.id]||0),v=Number(contribution[n.id]||0);
         const intensity=chosen?Math.min(Math.abs(v)/contributionScale,1):Math.min(a,1);
+        // Display gain lifts faint activity without changing the recorded rates.
+        const glow=Math.pow(Math.max(0,intensity),.72);
         const colors=this.geometry.palette||palette;
         const color=chosen?(v<0?'#ff9589':'#d5ff7b'):colors[n.group%colors.length];
-        c.strokeStyle=color;c.lineWidth=intensity>.3?1.2:.65;c.globalAlpha=chosen?.045+intensity*.88:.13+intensity*.75;
+        c.strokeStyle=color;
         c.beginPath();
         for(const s of n.segments){const a=project(s[0]),b=project(s[1]);c.moveTo(a[0],a[1]);c.lineTo(b[0],b[1]);}
+        // Reuse the path for a soft halo; avoid costly blur across all segments.
+        if(glow>0){c.lineWidth=2.8+glow*1.4;c.globalAlpha=glow*.12;c.stroke();}
+        c.lineWidth=.65+glow*1.05;c.globalAlpha=(chosen?.045:.13)+glow*.82;
         c.stroke();
-        if(intensity>.16&&n.soma){const p=project(n.soma);c.fillStyle=color;c.globalAlpha=.2+intensity*.7;c.beginPath();c.arc(p[0],p[1],1.5+intensity*2.5,0,Math.PI*2);c.fill();}
+        if(intensity>.16&&n.soma){
+          const p=project(n.soma),radius=6+glow*7;
+          const halo=c.createRadialGradient(p[0],p[1],0,p[0],p[1],radius);
+          halo.addColorStop(0,color);halo.addColorStop(1,'transparent');
+          c.fillStyle=halo;c.globalAlpha=.15+glow*.3;c.beginPath();c.arc(p[0],p[1],radius,0,Math.PI*2);c.fill();
+          c.fillStyle=color;c.globalAlpha=.3+glow*.65;c.beginPath();c.arc(p[0],p[1],1.5+glow*3,0,Math.PI*2);c.fill();
+          c.fillStyle='#f1fffa';c.globalAlpha=glow*.65;c.beginPath();c.arc(p[0],p[1],.7+glow*.7,0,Math.PI*2);c.fill();
+        }
       }
       c.globalCompositeOperation='source-over';c.globalAlpha=1;
     }
