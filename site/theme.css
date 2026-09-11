@@ -1,0 +1,45 @@
+/* Shared page chrome. Scientific viewports retain their original palettes. */
+html[data-theme=light]{color-scheme:light;--bg:#f5f8fa;--surface:#fff;--line:#d5e0e5;--text:#172d38;--muted:#536773;--cyan:#087b6b;--pink:#b93670}
+html[data-theme=dark]{color-scheme:dark}
+.lab-header-actions{display:flex;align-items:center;gap:12px;margin-left:auto}
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:10px 14px;border:1px solid #334751;border-radius:10px;background:#12212b;color:#deebf2;font:600 14px/1.3 Inter,system-ui,sans-serif;white-space:nowrap;cursor:pointer}
+.theme-toggle[hidden]{display:none}.theme-toggle:hover{background:#263c49}.theme-toggle:focus-visible{outline:3px solid #42a594;outline-offset:3px}.theme-toggle svg{height:18px;width:18px}
+[data-theme=light] .theme-sun,[data-theme=dark] .theme-moon{display:none}
+html[data-theme=light] header{background:#fff}
+html[data-theme=light] .lab-tabs{background:#eaf0f3;border-color:#d0dce2}
+html[data-theme=light] .lab-tabs a{color:#405865}
+html[data-theme=light] .lab-tabs a:hover{background:#dce8ec;color:#183a43}
+html[data-theme=light] .lab-tabs a[aria-current=page]{background:#c6efd2;color:#17452f}
+html[data-theme=light] .theme-toggle{background:#fff;border-color:#c8d7de;color:#284956}
+html[data-theme=light] .theme-toggle:hover{background:#eaf3f4}
+
+/* Scrollfly: bright page surfaces, dark ink and saturated readouts. */
+html[data-theme=light]:not([data-brain-mode]) button,html[data-theme=light]:not([data-brain-mode]) select{background:#fff;border-color:#bfd0d9;color:#264550}
+html[data-theme=light]:not([data-brain-mode]) button:hover{background:#e4eeef}
+html[data-theme=light]:not([data-brain-mode]) #play{background:#087b6b;border-color:#087b6b;color:#fff}
+html[data-theme=light] #liking-score{color:#366d2c}
+html[data-theme=light] .top-neurons b{color:var(--text)!important}
+html[data-theme=light] .region-dot{box-shadow:0 0 0 1px #172d3826}
+html[data-theme=light] .progress,html[data-theme=light] .region-track{background:#dce6ea}
+html[data-theme=light] #trace{background:#111c28;border-radius:8px}
+html[data-theme=light] .phone{color:#eff4fc;--cyan:#65e5d2}
+html[data-theme=light]:not([data-brain-mode]) .brain-anatomy{--text:#eff4fc;--muted:#a7b7cb;--line:#283142;--cyan:#65e5d2}
+html[data-theme=light]:not([data-brain-mode]) .anatomy-caption button{background:#18212b;color:#c1d1df;border-color:#405367}
+html[data-theme=light]:not([data-brain-mode]) .anatomy-caption button:hover{background:#2a3e4e}
+
+/* The environment shares the preference while its arena and sensory images
+   keep their original rendering colors. */
+html[data-brain-mode][data-theme=dark]{--paper:#0a0d15;--ink:#e4edf5;--muted:#a2b2c2;--line:#2b394b}
+html[data-brain-mode][data-theme=dark] .topbar,html[data-brain-mode][data-theme=dark] .settings,html[data-brain-mode][data-theme=dark] .camera-card,html[data-brain-mode][data-theme=dark] .smell-card,html[data-brain-mode][data-theme=dark] .metrics{background:#121b28}
+html[data-brain-mode][data-theme=dark] button,html[data-brain-mode][data-theme=dark] select,html[data-brain-mode][data-theme=dark] input[type=number],html[data-brain-mode][data-theme=dark] kbd{background:#1b2939;border-color:#3c5165;color:#e4edf5}
+html[data-brain-mode][data-theme=dark] button:hover{background:#2b4054}
+html[data-brain-mode][data-theme=dark] .dimension-switch,html[data-brain-mode][data-theme=dark] .about-note{background:#152332;border-color:#35495c}
+html[data-brain-mode][data-theme=dark] .dimension-switch button.selected,html[data-brain-mode][data-theme=dark] button.primary{background:#c6efd2;border-color:#c6efd2;color:#173e2e}
+html[data-brain-mode][data-theme=dark] .brand-mark{background:#223945;color:#c9fa72}
+html[data-brain-mode][data-theme=dark] .brand-label{border-color:#3a4d5f}
+html[data-brain-mode][data-theme=dark] .dpad button.held{background:#356d58;color:#fff}
+html[data-brain-mode][data-theme=dark] #smell{background:#f5f8fa;border-radius:5px}
+html[data-brain-mode][data-theme=dark] .error{color:#ffb7bf}
+html[data-brain-mode][data-theme=dark] input[type=range],html[data-brain-mode][data-theme=dark] input[type=checkbox]{accent-color:#a4d8b6}
+@media(max-width:640px){.lab-header-actions{width:100%;margin-left:0;flex-wrap:wrap;gap:10px}.lab-header-actions .lab-tabs{flex:1;width:auto}.theme-toggle{margin-left:auto}}
+@media(max-width:480px){.lab-header-actions .lab-tabs{flex-basis:100%}}

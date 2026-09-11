@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en" data-brain-mode="anatomy">
+<html lang="en" data-theme="light" data-brain-mode="anatomy">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101d27">
   <meta name="description" content="Explore 2D and 3D fly foraging environments with wing controls, visual observations, and directional scent.">
   <title>Flyspace — Brain and environment</title>
+  <script src="../theme.js"></script>
   <link rel="stylesheet" href="style.css">
   <script defer src="environment.js"></script>
   <script defer src="policy.js"></script>
@@ -13,11 +14,12 @@
   <script defer src="brain.js"></script>
   <script defer src="app.js"></script>
   <link rel="stylesheet" href="../lab-tabs.css">
+  <link rel="stylesheet" href="../theme.css">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="./index.html" aria-label="Flyspace home"><span class="brand-mark">f<span>·</span></span>flyspace<span class="brand-label">ENVIRONMENT LAB</span></a>
-    <nav class="lab-tabs" aria-label="Explore the fly lab"><a href="../"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="2" width="10" height="16" rx="2"/><path d="M8 15h4"/></svg>Scrollfly</a><a href="./" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Environment</a></nav>
+    <div class="lab-header-actions"><nav class="lab-tabs" aria-label="Explore the fly lab"><a href="../"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="2" width="10" height="16" rx="2"/><path d="M8 15h4"/></svg>Scrollfly</a><a href="./" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Environment</a></nav><button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode" hidden><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.8 13.3A9 9 0 0 1 10.7 3.2 9 9 0 1 0 20.8 13.3Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg><span>Dark mode</span></button></div>
   </header>
   <main>
     <div class="workspace-heading">

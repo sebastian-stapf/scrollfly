@@ -1,7 +1,7 @@
 {
-  "release": "replay-20260911-environment",
+  "release": "replay-20260911-light-mode",
   "asset": "scrollfly-pages.tar.gz",
-  "sha256": "fb7e45bd075961d2655d73e1c7340d4aba076d6b057b2ad52d49e5323e66b61e",
+  "sha256": "35a97d6d9e3af417dde3c527b2a00d7abe0ba10740def25e6ce9c008ad61ad33",
   "videos": 49,
   "first_video": "100194",
   "excluded_video_ids": [
@@ -13,6 +13,6 @@
     "index.html",
     "environment/index.html"
   ],
-  "uncompressed_bytes": 250034664,
-  "archive_bytes": 211146284
+  "uncompressed_bytes": 250042061,
+  "archive_bytes": 211148269
 }

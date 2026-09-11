@@ -13,6 +13,10 @@ This page shows interactive MaleCNS anatomy without simulated neural activity.
 The trained brain pilot needs a separate compute service and is not exposed
 by this static website. No private service is contacted by the public page.
 
+Both pages include a light/dark switch beside their navigation. Light is the
+initial default, and an explicit choice is remembered across visits and tabs.
+The video, fly model and scientific viewports retain their original colors.
+
 The readout was trained on 500 videos and evaluated on 50 creator-disjoint
 videos. The website shows 49 of those clips after a display exclusion; the
 evaluation results are unchanged. The readout does not beat the constant
