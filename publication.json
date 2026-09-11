@@ -1,0 +1,14 @@
+{
+  "release": "replay-20260911-49",
+  "asset": "scrollfly-pages.tar.gz",
+  "sha256": "a07c167682eb2c4b37cc01808b6a1406e3010cfdba981635458cfe9087f70857",
+  "videos": 49,
+  "first_video": "100194",
+  "excluded_video_ids": [
+    "34408"
+  ],
+  "train_videos": 500,
+  "evaluated_videos": 50,
+  "uncompressed_bytes": 248820468,
+  "archive_bytes": 209990127
+}

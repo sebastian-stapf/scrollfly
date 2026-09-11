@@ -1,0 +1,22 @@
+Scrollfly — Brain rot, fly edition
+
+Watch-time simulation built on Stonkfly: https://github.com/nftechie/stonkfly
+MIT notice: STONKFLY-LICENSE.txt
+Fly model: https://github.com/mattyhempstead/fly-wirehead
+Pinned source and adaptation details: WIREHEAD-SOURCE.txt
+Three.js r180: https://threejs.org — THREE-LICENSE.txt
+
+Wiring and neuron morphology: MaleCNS v1.0, FlyEM / Janelia, Cambridge,
+MRC LMB & Google, CC BY 4.0: https://male-cns.janelia.org/download
+https://creativecommons.org/licenses/by/4.0/
+Sampled morphology and simulated activity are rendered in a new presentation.
+
+Video dataset: https://github.com/tsinghua-fib-lab/ShortVideo_dataset
+Shang, Yu; Gao, Chen; Li, Nian; Li, Yong (2025).
+A Large-scale Dataset with Behavior, Attributes, and Content of Mobile
+Short-video Platform. Companion Proceedings of the ACM on Web Conference,
+pages 793–796. Video creators retain rights to their footage and audio.
+
+500 training videos; 50 evaluated held-out videos; 49 shown after a display
+exclusion. Evaluation metrics are unchanged. The fly model is frozen; only
+the dopamine readout was fitted. The enjoyment percentage is illustrative.

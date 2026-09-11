@@ -1,0 +1,5 @@
+_site/
+*.tar.gz
+videos/
+brain-*.json
+replay.json
