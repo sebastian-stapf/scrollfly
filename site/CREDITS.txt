@@ -10,6 +10,8 @@ Wiring and neuron morphology: MaleCNS v1.0, FlyEM / Janelia, Cambridge,
 MRC LMB & Google, CC BY 4.0: https://male-cns.janelia.org/download
 https://creativecommons.org/licenses/by/4.0/
 Sampled morphology and simulated activity are rendered in a new presentation.
+The Environment page uses the project's browser foraging simulator, manual
+controls and hand-written sensor reflex. Its anatomy has no live activity.
 
 Video dataset: https://github.com/tsinghua-fib-lab/ShortVideo_dataset
 Shang, Yu; Gao, Chen; Li, Nian; Li, Yong (2025).

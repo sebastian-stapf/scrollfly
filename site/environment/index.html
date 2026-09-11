@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-brain-mode="anatomy">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d27">
+  <meta name="description" content="Explore 2D and 3D fly foraging environments with wing controls, visual observations, and directional scent.">
+  <title>Flyspace — Brain and environment</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="environment.js"></script>
+  <script defer src="policy.js"></script>
+  <script defer src="renderer.js"></script>
+  <script defer src="brain.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="../lab-tabs.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./index.html" aria-label="Flyspace home"><span class="brand-mark">f<span>·</span></span>flyspace<span class="brand-label">ENVIRONMENT LAB</span></a>
+    <nav class="lab-tabs" aria-label="Explore the fly lab"><a href="../"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="2" width="10" height="16" rx="2"/><path d="M8 15h4"/></svg>Scrollfly</a><a href="./" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Environment</a></nav>
+  </header>
+  <main>
+    <div class="workspace-heading">
+      <div><p class="eyebrow">FORAGING IN SPACE</p><h1>A fly brain in a new world.</h1></div>
+      <div class="dimension-switch" role="group" aria-label="Environment dimension">
+        <button class="selected" data-dimension="2" aria-pressed="true">2D <span>plane</span></button>
+        <button data-dimension="3" aria-pressed="false">3D <span>volume</span></button>
+      </div>
+    </div>
+    <div class="workspace">
+      <section class="arena-column" aria-label="Environment visualization">
+        <div class="arena-shell">
+          <div class="arena-top"><span id="arena-label">PLANAR ARENA</span><span id="live-status">PAUSED</span></div>
+          <canvas id="arena" tabindex="0" aria-label="Fly arena. Use the control panel or keyboard to fly. In 3D, drag to orbit the observer camera."></canvas>
+          <div class="arena-legend"><span><i class="reward-dot"></i>Dog poo <b>+1</b></span><span><i class="danger-dot"></i>Flytrap <b>−1</b></span></div>
+          <div class="arena-hint" id="arena-hint">WASD / arrows to fly</div>
+          <div id="episode-overlay" class="episode-overlay" hidden><p class="eyebrow">EPISODE COMPLETE</p><h2 id="episode-title">Time’s up</h2><p id="episode-summary"></p><button id="play-again" class="primary">Replay this seed</button></div>
+        </div>
+        <div class="transport">
+          <div class="transport-buttons"><button id="play" class="primary">▶ Run episode</button><button id="step" title="Advance one simulation step">Step</button><button id="reset" title="Reset the episode with the same seed">↺ Reset</button></div>
+          <label class="speed-control">Speed <select id="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+        </div>
+        <div class="metrics" aria-label="Episode statistics">
+          <div><span>Episode return</span><strong id="score">0</strong><small id="score-note">poo +1 · trap −1 · wall −0.01/step</small></div>
+          <div><span>Collected</span><strong id="collected">0 <em>/ 16</em></strong><small>rewards disappear on contact</small></div>
+          <div><span>Trap contacts</span><strong id="hits">0</strong><small>avoid the open jaws</small></div>
+          <div><span>Time remaining</span><strong id="time">60<em>s</em></strong><small id="step-count">step 0 / 1800</small></div>
+        </div>
+        <section class="brain-lab" aria-labelledby="brain-title">
+          <div class="brain-heading"><div><p class="eyebrow">MALE CNS / v1.0</p><h2 id="brain-title">Explore the fly’s anatomy</h2></div><span id="brain-status" class="brain-status">CONNECTING</span></div>
+          <div class="brain-workspace">
+            <div class="brain-anatomy">
+              <canvas id="brain-canvas" aria-label="MaleCNS anatomical neuron skeletons, colored by measured model activity. Drag to rotate and scroll to zoom."></canvas>
+              <img id="brain-reference" src="assets/malecns-reference.png" alt="Anatomical reference of the MaleCNS brain, optic lobes and ventral nerve cord from Janelia and collaborators.">
+              <div class="brain-orbit-hint" id="brain-orbit-hint">ANATOMICAL REFERENCE · ACTIVITY UNAVAILABLE</div>
+              <div class="brain-anatomy-labels"><span>OPTIC LOBES</span><span>CENTRAL BRAIN</span><span>VENTRAL NERVE CORD</span></div>
+            </div>
+            <div class="brain-readout">
+              <div class="brain-counts"><div><strong id="brain-neurons">—</strong><span>modeled neurons</span></div><div><strong id="brain-edges">—</strong><span>directed connections</span></div></div>
+              <p class="brain-readout-label">OUTPUT CONTRIBUTIONS</p>
+              <div id="brain-actions" class="brain-actions"><p class="help">Select the brain pilot to measure activity for an action.</p></div>
+              <button id="brain-all" class="brain-all">Show all activity</button>
+              <p id="brain-region-label" class="brain-region-label">Mean activity by region</p><div id="brain-regions" class="brain-regions"></div>
+              <div class="brain-neuron-list"><h3 id="brain-contribution-title">Active neurons</h3><ol id="brain-top-neurons"><li>Waiting for a model observation</li></ol></div>
+            </div>
+          </div>
+          <div class="brain-footer"><p id="brain-caption">The image is an anatomical reference. Model activity appears when the brain service is connected.</p><button id="brain-connect">Reconnect brain</button></div>
+          <div class="brain-training"><span id="brain-checkpoint">No checkpoint loaded</span><span id="brain-training-progress">Training status unavailable</span></div>
+          <p id="brain-sensors" class="brain-credit" aria-live="polite">Sensory receipt appears after a brain action</p>
+          <p class="brain-credit">MaleCNS: FlyEM / HHMI Janelia, Cambridge / MRC LMB &amp; Google Research · <a href="https://male-cns.janelia.org/download/" target="_blank" rel="noreferrer">CC BY 4.0 data</a>. Highlights show this model’s activity and learned readout contributions, not biological causality.</p>
+        </section>
+        <section class="perception" aria-labelledby="perception-title">
+          <div class="section-title"><h2 id="perception-title">Through the fly’s eyes</h2><span id="vision-label">MONO · 100° FOV</span></div>
+          <div class="perception-grid">
+            <div class="camera-card"><div class="camera-label"><span id="left-label">FORWARD VIEW</span><span>96 × 64 RGB</span></div><canvas id="eye-left" width="96" height="64" aria-label="Fly visual observation"></canvas><p id="camera-caption">Ahead is up. Only the forward field is visible.</p></div>
+            <div class="camera-card" id="right-eye-card" hidden><div class="camera-label"><span>RIGHT EYE</span><span>96 × 64 RGB</span></div><canvas id="eye-right" width="96" height="64" aria-label="Right eye stereo observation"></canvas><p>Parallel cameras · 0.22 unit separation</p></div>
+            <div class="smell-card"><div class="camera-label"><span>ATTRACTION SCENT</span><span id="smell-state">ON</span></div><canvas id="smell" width="240" height="150" aria-label="Attractive scent direction, source type unknown"></canvas><div class="scent-values"><span>Strength <b id="scent-strength">0.00</b></span><span>Source unknown</span></div><p id="smell-caption">Poo and flytraps smell alike. Use vision to tell them apart.</p></div>
+          </div>
+        </section>
+      </section>
+      <aside class="settings" aria-label="Environment controls">
+        <section><p class="eyebrow">01 / PILOT</p><h2>Take the controls</h2><label for="pilot">Pilot</label><select id="pilot"><option value="manual">You · manual control</option><option value="reflex" selected>Sensor reflex · demo</option></select><p class="help" id="pilot-help">Run the episode, then use the keys or buttons.</p>
+          <label for="control">Action space</label><select id="control"><option value="directional" selected>Directional movement</option><option value="wings">Independent wing controls</option></select>
+          <div id="direction-controls" class="dpad" role="group" aria-label="Directional controls"><button data-action="1" class="up" aria-label="Up">↑</button><button data-action="3" class="left" aria-label="Left">←</button><span class="dpad-center">FLY</span><button data-action="4" class="right" aria-label="Right">→</button><button data-action="2" class="down" aria-label="Down">↓</button><button data-action="5" class="forward depth-control" hidden>Forward</button><button data-action="6" class="backward depth-control" hidden>Backward</button></div>
+          <div id="wing-controls" hidden><label for="left-wing">Left wing <output id="left-wing-value">0.00</output><input id="left-wing" aria-label="Left wing" type="range" min="-1" max="1" step="0.05" value="0"></label><label for="right-wing">Right wing <output id="right-wing-value">0.00</output><input id="right-wing" aria-label="Right wing" type="range" min="-1" max="1" step="0.05" value="0"></label><label for="pitch" class="wing-3d" hidden>Pitch <output id="pitch-value">0.00</output><input id="pitch" aria-label="Pitch" type="range" min="-1" max="1" step="0.05" value="0"></label><label for="bank" class="wing-3d" hidden>Bank <output id="bank-value">0.00</output><input id="bank" aria-label="Bank" type="range" min="-1" max="1" step="0.05" value="0"></label><button id="neutral-wings" class="wide">Neutralize wings</button></div>
+          <p class="key-help" id="key-help"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys</p>
+        </section>
+        <section><p class="eyebrow">02 / PERCEPTION</p><label for="sensors">Agent inputs</label><select id="sensors"><option value="vision-smell">Vision + smell</option><option value="vision">Vision only</option></select><p class="help" id="sensor-help">Poo and flytraps share one attractive scent. Vision is needed to tell them apart.</p></section>
+        <section><p class="eyebrow">03 / EPISODE</p><div class="field-pair"><label>Rewards<input id="reward-count" type="number" min="1" max="40" step="1" value="16"></label><label>Flytraps<input id="danger-count" type="number" min="0" max="30" step="1" value="7"></label></div><div class="field-pair"><label>Duration (s)<input id="duration" type="number" min="10" max="300" step="1" value="60"></label><label>Seed<input id="seed" type="number" min="0" max="4294967295" step="1" value="42"></label></div><label class="checkbox-label"><input type="checkbox" id="lethal">End episode on trap contact</label><button id="new-world" class="wide">↻ New random world</button><p class="help">Changing a setting starts a fresh episode. The same seed recreates the same world.</p><p id="config-error" class="error" role="alert" hidden></p></section>
+        <section class="about-note"><span class="note-symbol">↗</span><p>Collect as much as you can before time runs out. All objects disappear on contact.</p><p class="help">The demo is a sensor-based reflex, not a trained agent. Wing dynamics are a simplified model.</p></section>
+      </aside>
+    </div>
+    <footer><span>FLYSPACE / EXPLORABLE ENVIRONMENTS</span><span>2 worlds · 2 control modes · one curious fly</span></footer>
+  </main>
+  <div class="sr-only" id="announcer" aria-live="polite"></div>
+  <noscript>This environment needs JavaScript enabled to run the simulation.</noscript>
+</body>
+</html>

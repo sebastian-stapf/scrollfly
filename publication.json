@@ -1,7 +1,7 @@
 {
-  "release": "replay-20260911-49",
+  "release": "replay-20260911-environment",
   "asset": "scrollfly-pages.tar.gz",
-  "sha256": "a07c167682eb2c4b37cc01808b6a1406e3010cfdba981635458cfe9087f70857",
+  "sha256": "fb7e45bd075961d2655d73e1c7340d4aba076d6b057b2ad52d49e5323e66b61e",
   "videos": 49,
   "first_video": "100194",
   "excluded_video_ids": [
@@ -9,6 +9,10 @@
   ],
   "train_videos": 500,
   "evaluated_videos": 50,
-  "uncompressed_bytes": 248820468,
-  "archive_bytes": 209990127
+  "pages": [
+    "index.html",
+    "environment/index.html"
+  ],
+  "uncompressed_bytes": 250034664,
+  "archive_bytes": 211146284
 }

@@ -43,8 +43,12 @@ jobs:
           assert replay['clips'][0]['content_id'] == manifest['first_video']
           assert not (site / 'videos/34408.mp4').exists()
           assert not (site / 'brain-34408.json').exists()
-          for path in pathlib.Path('site').iterdir():
-              assert path.read_bytes() == (site / path.name).read_bytes(), f'Source differs from bundle: {path.name}'
+          for page in manifest.get('pages', ['index.html']):
+              assert (site / page).is_file(), f'Missing page: {page}'
+          for path in pathlib.Path('site').rglob('*'):
+              if path.is_file():
+                  relative = path.relative_to('site')
+                  assert path.read_bytes() == (site / relative).read_bytes(), f'Source differs from bundle: {relative}'
           PY
       - uses: actions/upload-pages-artifact@v4
         with:
