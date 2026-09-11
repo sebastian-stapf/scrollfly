@@ -1,0 +1,7 @@
+.lab-tabs{display:flex;align-items:center;gap:4px;padding:5px;border:1px solid #334751;border-radius:12px;background:#12212b;font-family:Inter,system-ui,sans-serif;letter-spacing:0;flex-shrink:0}
+.lab-tabs a{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 15px;border-radius:8px;color:#cddce4;font-size:14px;font-weight:600;line-height:1.3;text-decoration:none;white-space:nowrap}
+.lab-tabs a:hover{background:#293d49;color:#fff}.lab-tabs a[aria-current=page]{background:#c6efd2;color:#142c23}.lab-tabs a:focus-visible{outline:3px solid #70d6e2;outline-offset:3px}.lab-tabs svg{width:16px;height:16px;flex-shrink:0}
+header:has(.lab-tabs){height:auto;min-height:78px;gap:18px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+@media(max-width:640px){header:has(.lab-tabs){gap:12px}.lab-tabs{width:100%}.lab-tabs a{flex:1;min-height:40px}header:has(.lab-tabs) .source{display:none}}
+html[data-brain-mode=anatomy] .brain-readout,html[data-brain-mode=anatomy] .brain-training,html[data-brain-mode=anatomy] #brain-sensors,html[data-brain-mode=anatomy] #brain-connect{display:none}
+html[data-brain-mode=anatomy] .brain-workspace{grid-template-columns:1fr}

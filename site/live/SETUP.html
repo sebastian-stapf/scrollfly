@@ -1,0 +1,15 @@
+<!doctype html><html lang="en" data-theme="dark"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect your TikTok feed · Scrollfly</title><script src="theme.js"></script>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"></head>
+<body><main><h1>Your feed. One very online fly.</h1>
+<p><a href="scrollfly-companion.zip" download>Download the Chrome companion</a>, then unzip it.</p><ol><li>Keep the Wally inference service and the local SSH bridge running.</li>
+<li>In Chrome, open <b>chrome://extensions</b>, enable Developer mode, choose <b>Load unpacked</b>, and select the extracted <b>extension</b> folder.</li>
+<li>Open TikTok's For You feed and finish any login or consent prompts yourself. Keep the whole video visible.</li>
+<li>Click Scrollfly in Chrome's extensions menu. The copied dashboard opens and connects to that tab.</li></ol>
+<p>The fly uses rendered RGB frames from the selected video. It may pause TikTok briefly for inference, then advances at its predicted watch time. Leave the TikTok tab open.</p>
+<p>Likes are animations inside Scrollfly. Viewing and scrolling are real actions in your TikTok feed and may influence its recommendations.</p>
+<p>No cookies or login credentials are read. Video frames are sent through your local SSH connection to the fly process and are kept in memory only. Disconnect stops capture and pauses the selected video.</p>
+<p>A public visitor cannot see your feed. This version requires your local companion and brain connection.</p>
+<p><a href="index.html">Back to the fly</a> · <a href="https://sebastian-stapf.github.io/scrollfly/">Recorded demo</a></p>
+</main></body></html>

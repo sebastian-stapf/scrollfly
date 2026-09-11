@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scrollfly Live · Your TikTok feed</title>
+  <meta name="theme-color" content="#0a0d15">
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="clock.js" defer></script><script src="activity-clock.js" defer></script><script src="fly-motion.js" defer></script><script src="wirehead-model.js" defer></script><script src="fly.js" defer></script><script src="brain.js" defer></script><script src="public.js" defer></script>
+  <link rel="stylesheet" href="lab-tabs.css">
+  <link rel="stylesheet" href="theme.css">
+<link rel="stylesheet" href="live.css"></head>
+<body>
+<header><a class="wordmark" href="./">scrollfly<span> / </span><small>behavior lab</small></a><span class="source">MaleCNS × your TikTok</span><div class="lab-header-actions"><nav class="lab-tabs" aria-label="Explore the fly lab"><a href="./" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="2" width="10" height="16" rx="2"/><path d="M8 15h4"/></svg>Scrollfly</a><a href="https://sebastian-stapf.github.io/scrollfly/environment/" target="_blank" rel="noreferrer"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Environment</a></nav><button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light mode" hidden><svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.8 13.3A9 9 0 0 1 10.7 3.2 9 9 0 1 0 20.8 13.3Z"/></svg><svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.4 1.4m11.2 11.2L19 19M5 19l1.4-1.4M17.6 6.4 19 5"/></svg><span>Light mode</span></button></div></header>
+<main>
+  <div class="heading"><div><p class="eyebrow">ONE FLY. ENDLESS SCROLL.</p><h1>Brain rot, fly edition.</h1></div><div class="controls"><label for="speed">Playback <select id="speed"><option value="1">1×</option><option value="4" selected>4×</option><option value="10">10×</option></select></label><button id="play" disabled>Play</button><button id="next" disabled>Next video</button></div></div>
+  <p id="status" role="status">Open your TikTok For You tab and click the Scrollfly companion.</p>
+  <div class="live-connection"><p>Open TikTok in Chrome, then click the Scrollfly companion. Only the selected video is sent to your fly brain. <a href="scrollfly-companion.zip" download>Download companion</a> · <a href="SETUP.html" target="_blank">Setup</a></p><button id="connect">Connect TikTok</button><button id="disconnect" disabled>Disconnect</button></div><div class="experiment">
+    <section class="stage" aria-label="Fly watching a smartphone and scrolling at its predicted watch time">
+      <div class="scene-caption"><span id="split">YOUR TIKTOK · LIVE CAPTURE</span><span id="clip-index"></span></div>
+      <canvas id="fly" width="1200" height="1000" aria-label="The Fly / Wirehead 3D fly: a dark faceted body, red eyes, six legs and translucent wings. Its front leg taps a like halfway through qualifying predictions and swipes at the end."></canvas>
+      <div class="thought"><span id="thought-caption">one more. for science.</span><strong id="bubble">—</strong><small>predicted attention span</small><span class="thought-tail"></span></div>
+      <div class="comic-sfx" aria-hidden="true"><span>BOOP!</span><small>one leg. impeccable taste.</small></div>
+      <div class="scroll-sfx" aria-hidden="true">NEXT!</div>
+      <div class="phone"><div class="camera"></div><div class="screen"><canvas id="live-screen" width="540" height="960" aria-label="Live cropped video from your selected TikTok tab"></canvas><video id="video" muted playsinline loop preload="auto" aria-label="Selected TikTok tab capture"></video><div class="screen-shade"></div><div class="feed-label">Following <b>For you</b></div><div class="fly-like"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg><span id="like-label">Fly like</span></div><div class="like-pop" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/></svg></div><div class="video-caption"><span>TIKTOK / YOUR FOR YOU FEED</span><strong id="video-title">Your TikTok video appears here</strong></div><div id="swipe" aria-hidden="true">↑</div><div class="phone-progress"><i id="phone-progress"></i></div></div><div class="home-bar"></div></div>
+      <div class="fly-label"><strong>Dr. Buzz <i>VERY ONLINE</i></strong><span id="character-state">Waking up the wirehead…</span></div>
+    </section>
+    <aside aria-label="Watch time and dopamine neuron readout">
+      <section class="prediction">
+        <p class="eyebrow">FLY SCORE</p>
+        <div class="big-value"><span id="liking-score">—</span><small>%</small></div>
+        <p id="liking-verdict">Waiting for the brain snack…</p>
+        <dl class="liking-inputs">
+          <div><dt>Video length</dt><dd id="score-duration">—</dd></div>
+          <div><dt>Session fly median</dt><dd id="actual">—</dd></div>
+          <div><dt>Fly prediction</dt><dd id="predicted">—</dd></div>
+        </dl>
+        <details class="score-explainer"><summary>How the score works</summary><p>100 × (2 × predicted watch time − earlier session median) ÷ video length, capped at 0–100%.</p><p>The session median uses earlier fly predictions, not human viewer data. During the first 3 videos, the score is predicted watch time as a percentage of video length.</p><p>A visual like happens halfway through a prediction at least 1 s above that session median. This is an illustrative score, not a measured probability of liking. It does not like the TikTok post.</p></details>
+        <div id="video-length" class="video-length">Original video · — s</div><div class="elapsed"><span id="elapsed">0.0 s watched</span><span id="remaining">— remaining</span></div><div class="progress" role="progressbar" aria-label="Original video playback progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progress"></i></div><div id="like-status" class="like-status" role="status">Visual likes use the earlier session prediction median.</div>
+      </section>
+      <section class="neural"><div class="section-heading"><h2>Dopamine readout</h2><span>17 cells</span></div><p id="dan-caption">Current simulated firing rates · 100 ms windows</p><div class="cell-group"><div><strong>PAM11</strong><span>15 cells</span></div><div id="pam-cells" class="cells"></div><output id="pam">—</output></div><div class="cell-group"><div><strong>PPL101</strong><span>2 cells</span></div><div id="ppl-cells" class="cells"></div><output id="ppl">—</output></div><canvas id="trace" width="540" height="180" aria-label="Prediction input: recorded mean firing rates during the opening 500 milliseconds"></canvas><div class="legend"><span><i></i>PAM11</span><span><i></i>PPL101</span><span>Opening 0–500 ms</span></div><p class="neural-note">The opening trace and membrane voltages determine watch time. Cell brightness follows computed capture windows. A missed capture stops new activity instead of filling the gap.</p></section>
+    </aside>
+  </div>
+  <section class="brain-lab" aria-labelledby="brain-title">
+    <div class="brain-heading"><div><p class="eyebrow">INSIDE THE SCROLLING BRAIN · MALE CNS v1.0</p><h2 id="brain-title">What lights up?</h2></div><div class="brain-timing"><span class="record-dot"></span><span id="brain-state" role="status">Waiting for captured video…</span><strong id="brain-time">0.0 s</strong></div></div>
+    <div class="brain-grid">
+      <div class="brain-anatomy"><div class="anatomy-caption"><span>REAL NEURON MORPHOLOGY</span><button id="reset-brain" aria-label="Reset brain rotation and zoom">Reset view ↺</button></div><canvas id="brain-canvas" aria-label="Interactive anatomical fly central nervous system. Brightness shows recorded simulated spike rate. Drag to rotate, scroll to zoom."></canvas><div class="orbit-hint">DRAG TO ORBIT · SCROLL TO ZOOM</div><div class="brain-scale"><span>QUIET</span><i></i><span>50+ Hz</span><span id="display-count"></span></div></div>
+      <div class="brain-readout"><div class="brain-stats"><div><strong>166,700</strong><span>simulated neurons</span></div><div><strong id="network-spikes">—</strong><span>spikes / 100 ms</span></div></div><div class="section-heading"><h3>Activity by region</h3><span>mean Hz / neuron</span></div><div id="brain-regions" class="brain-regions"></div><div class="section-heading top-heading"><h3>Most active cells</h3><span>current window</span></div><ol id="top-neurons" class="top-neurons"><li>Connect a TikTok video to see its response.</li></ol></div>
+    </div>
+    <p class="brain-note">Dr. Buzz is a cartoon; this panel shows simulated responses to captured TikTok frames. Playback pauses while the brain catches up. The timestamp identifies the latest computed window. The anatomy shows <span id="anatomy-count">sampled</span> real neuron skeletons; region rates use all 166,700 neurons. Regions are broad annotation groups, including pathways and the ventral nerve cord. Brightness shows electrical firing, not dopamine concentration or a causal explanation of the prediction. <a href="https://male-cns.janelia.org/download" target="_blank" rel="noreferrer">MaleCNS · FlyEM / Janelia, Cambridge, MRC LMB & Google · CC BY 4.0 ↗</a></p>
+  </section>
+  <section class="evidence"><div><p class="eyebrow">HELD-OUT CREATORS</p><strong id="error">—</strong><span>mean absolute error</span></div><div><p class="eyebrow">CONSTANT BASELINE</p><strong id="baseline">—</strong><span>mean absolute error</span></div><p id="finding">Trained on 500 ShortVideo clips; these errors are from the original 50-video evaluation, where the fly did not beat the constant baseline. Current TikTok performance is unvalidated. The full connectome stays frozen; only the dopamine readout was fitted.</p></section>
+  <footer><span>Frames → retinal inputs → full fly network → dopamine-cell readout → watch time → swipe</span><a href="https://github.com/tsinghua-fib-lab/ShortVideo_dataset" target="_blank" rel="noreferrer">Dataset & paper ↗</a><a href="https://github.com/nftechie/stonkfly" target="_blank" rel="noreferrer">Built on Stonkfly ↗</a><a href="https://github.com/mattyhempstead/fly-wirehead" target="_blank" rel="noreferrer">Fly model · Fly / Wirehead ↗</a></footer>
+</main>
+</body></html>

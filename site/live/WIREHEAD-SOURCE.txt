@@ -1,0 +1,22 @@
+Fly / Wirehead model source
+Repository: https://github.com/mattyhempstead/fly-wirehead
+Branch: main
+Revision: fcefe9441f80e25aab713411ebced53f5e5ea172
+
+The repository identifies its 3D scene as original work. Scrollfly reuses the
+fly geometry from dist/scene.js and foreleg kinematics from dist/swipe.js.
+The repository's THIRD_PARTY.md identifies separate licenses for its neural
+backend, data and Three.js; it does not specify a general scene-code license.
+The scene source is credited separately from the MIT-licensed Three.js runtime.
+
+Changes: extracted the fly from the chamber into a reusable component, moved
+its root to the existing scene, and adapted its idle, celebration and gesture
+clocks. Its geometry, materials, six legs, wings, head implant and fixed-length
+foreleg kinematics come from the pinned source. The chamber, tether, garden,
+phone, neural backend and videos are not imported. The implant is decorative.
+The original Three.js dependency is the same r180 version already vendored.
+
+Original source SHA-256:
+3d67865ccd861b2d588ddfeb17a39d0ccf1a42dd60f12a9a909015c915ea7223  dist/scene.js
+8def9309e4a0eadc3e1b5049381d29fb30958ee2083e016f45ec0cbd21bbaf19  dist/swipe.js
+15d944e36901db2bf6422089021cf22811a7d73052b3560ee0c131453744125a  THIRD_PARTY.md

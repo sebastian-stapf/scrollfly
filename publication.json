@@ -1,7 +1,7 @@
 {
-  "release": "replay-20260911-dark-default",
+  "release": "replay-20260911-live-companion",
   "asset": "scrollfly-pages.tar.gz",
-  "sha256": "077f7b22ab9faddcbfd1daeb8df337490024df6b6ea2fc35f276d97037bfdc6e",
+  "sha256": "68cd7f2fc85b6e28f92bcf507d83bb29ba3c2394e23173f0382faa094bdcc94c",
   "videos": 49,
   "first_video": "100194",
   "excluded_video_ids": [
@@ -11,8 +11,10 @@
   "evaluated_videos": 50,
   "pages": [
     "index.html",
-    "environment/index.html"
+    "environment/index.html",
+    "live/index.html",
+    "live/SETUP.html"
   ],
-  "uncompressed_bytes": 250042765,
-  "archive_bytes": 211148655
+  "uncompressed_bytes": 262268322,
+  "archive_bytes": 212128548
 }

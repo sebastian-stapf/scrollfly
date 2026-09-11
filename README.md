@@ -1,5 +1,14 @@
 # Scrollfly
 
+[Personal TikTok feed edition](https://sebastian-stapf.github.io/scrollfly/live/)
+uses a user-invoked Chrome companion and a private Wally inference connection.
+Install the companion from that page, open your For You tab, and click the
+extension. Feed frames remain inside the companion and private inference bridge;
+GitHub Pages receives no personal feed. The original recorded demo is unchanged.
+The live edition's model path is parity-checked; actual Chrome/TikTok capture
+requires the user's first connection. Current TikTok prediction accuracy is
+unvalidated. Visual likes are local animations, not account likes.
+
 [Open the website](https://sebastian-stapf.github.io/scrollfly/)
 
 A fly-connectome watch-time replay with the Fly / Wirehead 3D model. The fly
