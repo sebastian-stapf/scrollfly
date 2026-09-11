@@ -15,8 +15,9 @@ baseline in this sample. The full connectome remains frozen.
 `site/` contains the website source. Videos and neural recordings are release
 assets, not Git objects. The Pages workflow verifies `publication.json` and
 checks source/bundle equality before deploying the exact recorded replay.
-Updates require a new verified release bundle and matching publication record,
-then manually running **Publish Scrollfly** in Actions.
+Updates require a new verified release bundle and matching publication record.
+Pushing to `codex/github-pages` deploys the verified bundle; **Publish Scrollfly**
+can also be run manually in Actions.
 
 Attributions: [Stonkfly](https://github.com/nftechie/stonkfly),
 [Fly / Wirehead](https://github.com/mattyhempstead/fly-wirehead),

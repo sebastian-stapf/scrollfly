@@ -1,6 +1,8 @@
 name: Publish Scrollfly
 
 on:
+  push:
+    branches: [codex/github-pages]
   workflow_dispatch:
 
 permissions:
